@@ -1,0 +1,19 @@
+{
+  "name": "create-turbo-search",
+  "description": "Your personal search engine",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "https://github.com/turbo-search/create-turbo-search.git",
+  "author": "moons14 <moons@moons14.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/turbo-search/create-turbo-search/issues"
+  },
+  "homepage": "https://github.com/turbo-search/create-turbo-search",
+  "keywords": [
+    "search"
+  ],
+  "scripts": {
+    "test": "echo \"Turbo Search\""
+  }
+}
