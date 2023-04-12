@@ -2,7 +2,9 @@
   "name": "create-turbo-search",
   "description": "Your personal search engine",
   "version": "0.1.0",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
   "repository": "https://github.com/turbo-search/create-turbo-search.git",
   "author": "moons14 <moons@moons14.com>",
   "license": "MIT",
@@ -14,6 +16,48 @@
     "search"
   ],
   "scripts": {
-    "test": "echo \"Turbo Search\""
+    "lint": "run-s lint:*",
+    "lint:eslint": "eslint . --ext .ts,.tsx --fix",
+    "lint:prettier": "prettier --write .",
+    "prebuild": "rimraf dist",
+    "build": "run-p build:*",
+    "build:common": "tsc",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "test": "jest",
+    "ts-esm": "node --loader ts-node/esm"
+  },
+  "devDependencies": {
+    "@jest/types": "^28.1.3",
+    "@types/jest": "^28.1.6",
+    "@types/node": "^18.6.4",
+    "@typescript-eslint/eslint-plugin": "^5.32.0",
+    "@typescript-eslint/parser": "^5.32.0",
+    "eslint": "^8.21.0",
+    "eslint-config-prettier": "^8.5.0",
+    "jest": "^28.1.3",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^28.0.7",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
+  },
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "create-turbo-search": "bin/index.js"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "@types/degit": "^2.8.3",
+    "@types/inquirer": "^9.0.3",
+    "@types/prompts": "^2.4.4",
+    "commander": "^9.4.0",
+    "degit": "^2.8.4",
+    "kleur": "^4.1.5",
+    "prompts": "^2.4.2"
   }
 }
